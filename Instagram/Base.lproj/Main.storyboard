@@ -307,7 +307,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="kaS-ED-tto" id="6nN-dp-wjw"/>
-                        <segue destination="g9F-fg-gBp" kind="presentation" identifier="Comment" id="MMB-EU-1YH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oi1-vt-476" userLabel="First Responder" sceneMemberID="firstResponder"/>

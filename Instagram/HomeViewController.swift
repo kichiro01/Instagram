@@ -20,14 +20,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // DatabaseのobserveEventの登録状態を表す
     var observing = false
     
-    //コメントボタンタップ時にsegueで渡す値
-    var postId: String?
-    
-    // segue で画面遷移するに呼ばれる
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        let CommentViewController:CommentViewController = segue.destination as! CommentViewController
-        CommentViewController.postId = self.postId!
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +37,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // テーブル行の高さの概算値を設定しておく
         // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、コメントラベル、その他余白の高さの合計概算(=130pt)」
         tableView.estimatedRowHeight = UIScreen.main.bounds.width + 130
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +67,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     if let uid = Auth.auth().currentUser?.uid {
                         // PostDataクラスを生成して受け取ったデータを設定する
                         let postData = PostData(snapshot: snapshot, myId: uid)
+                        print("DEBUG_PRINT: ここにコメント \(postData.comments) ")
                         
                         // 保持している配列からidが同じものを探す
                         var index: Int = 0
@@ -175,12 +169,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
         
-        // 配列からタップされたインデックスのidを取り出しインスタンス変数に代入
+        // 配列からタップされたインデックスのpostdataを取り出しappdelegateに渡す
         let postData = postArray[indexPath!.row]
-        self.postId = postData.id!
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        appDelegate.postData = postData
         
         //コメント入力欄を表示
-        performSegue(withIdentifier: "cellSegue",sender: nil)
+        let CommentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment")
+        self.present(CommentViewController!, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

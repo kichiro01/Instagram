@@ -13,7 +13,7 @@ import SVProgressHUD
 
 class CommentViewController: UIViewController {
 
-    var postId: String?
+    var postData: PostData!
     
     @IBOutlet weak var commentTextField: UITextField!
     
@@ -24,9 +24,11 @@ class CommentViewController: UIViewController {
                 return
             }
             // 辞書を作成してFirebaseに保存する
-            let uid = Auth.auth().currentUser?.uid
-            let postRef = Database.database().reference().child(Const.PostPath).child(self.postId!)
-            let comments = ["comments": "/(uid) : /(comment)"]
+            let username = Auth.auth().currentUser?.displayName
+            self.postData.comments.append("\(username!) : \(comment)")
+            
+            let postRef = Database.database().reference().child(Const.PostPath).child(self.postData.id!)
+            let comments = ["comments": postData.comments]
             postRef.updateChildValues(comments)
             
             // HUDでコメント完了を表示する
@@ -44,6 +46,8 @@ class CommentViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.postData = appDelegate.postData
         // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)

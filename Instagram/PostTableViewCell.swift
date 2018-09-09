@@ -49,10 +49,12 @@ class PostTableViewCell: UITableViewCell {
             self.likeButton.setImage(buttonImage, for: .normal)
         }
         
+        self.commentLabel.text = ""
         let comments = postData.comments
-        for i in comments{
-            self.commentLabel.text = "\(i)\n"
+        var allComments = ""
+        for i in comments {
+             allComments = allComments + i + "\n"
         }
+            self.commentLabel.text = "\(allComments)"
     }
-    
 }
