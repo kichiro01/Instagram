@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axi-dV-eBV">
-                                <rect key="frame" x="37" y="80" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="80" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="daA-IR-qc5"/>
                                 </constraints>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lp4-0B-yeF">
-                                <rect key="frame" x="37" y="130" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="130" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="jWm-99-VXy"/>
                                 </constraints>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTs-Cw-lyi">
-                                <rect key="frame" x="37" y="180" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="180" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="61n-ZK-8SA"/>
                                 </constraints>
@@ -89,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3a-Z6-ZUh">
-                                <rect key="frame" x="37" y="180" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="180" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="96e-Lg-iIC"/>
                                 </constraints>
@@ -99,7 +99,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yW6-6s-aE9">
-                                <rect key="frame" x="37" y="230" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="230" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="2wB-GS-zPM"/>
                                 </constraints>
@@ -154,7 +154,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6S-F5-Fwy">
-                                <rect key="frame" x="37" y="190" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="190" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="aGv-Xk-Cud"/>
                                 </constraints>
@@ -173,7 +173,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CX-kd-b07">
-                                <rect key="frame" x="37" y="140" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="140" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="nQb-DU-kcD"/>
                                 </constraints>
@@ -307,11 +307,69 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="kaS-ED-tto" id="6nN-dp-wjw"/>
+                        <segue destination="g9F-fg-gBp" kind="presentation" identifier="Comment" id="MMB-EU-1YH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oi1-vt-476" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1468" y="111"/>
+        </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="LlG-1Z-vcX">
+            <objects>
+                <viewController storyboardIdentifier="Comment" id="g9F-fg-gBp" customClass="CommentViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Th1-2Q-B3s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="985-wd-DKF">
+                                <rect key="frame" x="87.5" y="145" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="imW-Dx-gpj"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aus-HY-yO9">
+                                <rect key="frame" x="97.5" y="185" width="180" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="HxJ-Pr-M4u"/>
+                                </constraints>
+                                <state key="normal" title="送信" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="commentButton:" destination="g9F-fg-gBp" eventType="touchUpInside" id="rIy-vm-gkJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLZ-0A-YOb">
+                                <rect key="frame" x="97.5" y="235" width="180" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="uVl-l4-7tl"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="g9F-fg-gBp" eventType="touchUpInside" id="G4s-HL-aya"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uLZ-0A-YOb" firstAttribute="top" secondItem="Aus-HY-yO9" secondAttribute="bottom" constant="10" id="1bD-L4-Vtk"/>
+                            <constraint firstItem="985-wd-DKF" firstAttribute="top" secondItem="2fO-F3-lKi" secondAttribute="top" constant="125" id="CsD-uE-aAZ"/>
+                            <constraint firstItem="985-wd-DKF" firstAttribute="centerX" secondItem="Th1-2Q-B3s" secondAttribute="centerX" id="EcR-t9-QL8"/>
+                            <constraint firstItem="Aus-HY-yO9" firstAttribute="centerX" secondItem="Th1-2Q-B3s" secondAttribute="centerX" id="fHK-Nx-8yl"/>
+                            <constraint firstItem="uLZ-0A-YOb" firstAttribute="centerX" secondItem="Th1-2Q-B3s" secondAttribute="centerX" id="hw0-9s-Lrq"/>
+                            <constraint firstItem="Aus-HY-yO9" firstAttribute="top" secondItem="985-wd-DKF" secondAttribute="bottom" constant="10" id="shF-D9-K0A"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2fO-F3-lKi"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentTextField" destination="985-wd-DKF" id="bUx-4A-its"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u2F-qj-ye8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2212" y="121.18226600985223"/>
         </scene>
     </scenes>
     <resources>

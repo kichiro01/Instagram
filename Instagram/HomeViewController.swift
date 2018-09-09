@@ -19,6 +19,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // DatabaseのobserveEventの登録状態を表す
     var observing = false
+    
+    //コメントボタンタップ時にsegueで渡す値
+    var postId: String?
+    
+    // segue で画面遷移するに呼ばれる
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let CommentViewController:CommentViewController = segue.destination as! CommentViewController
+        CommentViewController.postId = self.postId!
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +43,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableViewAutomaticDimension
         // テーブル行の高さの概算値を設定しておく
-        // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、その他余白の高さの合計概算(=100pt)」
-        tableView.estimatedRowHeight = UIScreen.main.bounds.width + 100
+        // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、コメントラベル、その他余白の高さの合計概算(=130pt)」
+        tableView.estimatedRowHeight = UIScreen.main.bounds.width + 130
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,6 +127,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
         
+        cell.commentButton.addTarget(self, action:#selector(handleButton2(_:forEvent:)), for: .touchUpInside)
+        
         return cell
     }
     // セル内のボタンがタップされた時に呼ばれるメソッド
@@ -155,6 +166,21 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             postRef.updateChildValues(likes)
             
         }
+    }
+    
+    @objc func handleButton2(_ sender: UIButton, forEvent event: UIEvent){
+        print("DEBUG_PRINT: commentボタンがタップされました。")
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        // 配列からタップされたインデックスのidを取り出しインスタンス変数に代入
+        let postData = postArray[indexPath!.row]
+        self.postId = postData.id!
+        
+        //コメント入力欄を表示
+        performSegue(withIdentifier: "cellSegue",sender: nil)
     }
 
     override func didReceiveMemoryWarning() {

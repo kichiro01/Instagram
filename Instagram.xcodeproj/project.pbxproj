@@ -11,6 +11,7 @@
 		8511517B214040E00023393F /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8511517A214040E00023393F /* PostData.swift */; };
 		8511517E214055C90023393F /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8511517C214055C90023393F /* PostTableViewCell.swift */; };
 		8511517F214055C90023393F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8511517D214055C90023393F /* PostTableViewCell.xib */; };
+		85115181214574250023393F /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85115180214574250023393F /* CommentViewController.swift */; };
 		854554D8213D008000298BCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 854554D7213D007F00298BCE /* GoogleService-Info.plist */; };
 		85C7D405213CFA160098D81B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7D404213CFA160098D81B /* AppDelegate.swift */; };
 		85C7D407213CFA160098D81B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7D406213CFA160098D81B /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		8511517A214040E00023393F /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		8511517C214055C90023393F /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		8511517D214055C90023393F /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		85115180214574250023393F /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		854554D7213D007F00298BCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85C7D401213CFA160098D81B /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C7D404213CFA160098D81B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				8511517A214040E00023393F /* PostData.swift */,
 				8511517C214055C90023393F /* PostTableViewCell.swift */,
 				8511517D214055C90023393F /* PostTableViewCell.xib */,
+				85115180214574250023393F /* CommentViewController.swift */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				8511517E214055C90023393F /* PostTableViewCell.swift in Sources */,
 				85C7D41F213CFAED0098D81B /* SettingViewController.swift in Sources */,
 				85C7D419213CFAC50098D81B /* HomeViewController.swift in Sources */,
+				85115181214574250023393F /* CommentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
